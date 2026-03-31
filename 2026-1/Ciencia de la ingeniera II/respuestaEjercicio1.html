@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gremio de Héroes - Acceso Restringido</title>
+    <style>
+        :root {
+            --gold: #ffcc00;
+            --dark-bg: #1a1a1a;
+            --parchment: #f4e4bc;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        #login-container {
+            text-align: center;
+            padding: 2rem;
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            background: #2a2a2a;
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.2);
+        }
+
+        h1 { color: var(--gold); margin-bottom: 1rem; }
+        
+        input {
+            padding: 10px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            border: none;
+            width: 200px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            background: var(--gold);
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        button:hover { background: #e6b800; }
+
+        #content {
+            display: none;
+            width: 90%;
+            max-width: 800px;
+            background: var(--parchment);
+            color: #2c1e11;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+            margin: 20px;
+            position: relative;
+        }
+
+        .code-block {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .mision-header {
+            border-left: 5px solid #8b4513;
+            padding-left: 15px;
+            margin-top: 25px;
+            color: #8b4513;
+        }
+
+        .error { color: #ff4444; margin-top: 10px; display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="login-container">
+        <h1>⚔️ Acceso al Códice</h1>
+        <p>Introduce la palabra rúnica para ver las respuestas:</p>
+        <input type="text" id="passkey" placeholder="CÓDIGO AQUÍ...">
+        <button onclick="checkCode()">Desbloquear</button>
+        <p class="error" id="err-msg">Código incorrecto. El dragón te vigila...</p>
+    </div>
+
+    <div id="content">
+        <h1 style="text-align: center;">📜 El Códice de Soluciones</h1>
+        <hr>
+        
+        <p>Aquí tienes las artes prohibidas de <strong>Lambda</strong> aplicadas a los objetos <code>Heroe</code>:</p>
+
+        <div class="mision-header"><h3>Misión 1: Formación de Fuerza</h3></div>
+        <p>Ordenamos la lista usando <code>key</code> y el atributo <code>fuerza</code> de forma descendente (negativo).</p>
+        <div class="code-block">
+            formacion_fuerza = sorted(reclutas, key=lambda h: h.fuerza, reverse=True)<br>
+            print(formacion_fuerza)
+        </div>
+
+        <div class="mision-header"><h3>Misión 2: Equipo de Sigilo</h3></div>
+        <p>Filtramos aquellos cuya agilidad es estrictamente superior a 50.</p>
+        <div class="code-block">
+            equipo_sigilo = list(filter(lambda h: h.agilidad > 50, reclutas))<br>
+            print(equipo_sigilo)
+        </div>
+
+        <div class="mision-header"><h3>Misión 3: Registro del Oráculo</h3></div>
+        <p>Transformamos el objeto en un string formateado usando f-strings dentro de la lambda.</p>
+        <div class="code-block">
+            registro_nombres = list(map(lambda h: f"{h.nombre} el {h.clase}", reclutas))<br>
+            print(registro_nombres)
+        </div>
+
+        <div class="mision-header"><h3>Misión 4: Torneo por Categorías</h3></div>
+        <p>Usamos una tupla en la lambda: primero ordena por clase (A-Z) y luego por agilidad (el "-" invierte el orden para que sea descendente).</p>
+        <div class="code-block">
+            orden_torneo = sorted(reclutas, key=lambda h: (h.clase, -h.agilidad))<br>
+            print(orden_torneo)
+        </div>
+
+        <div class="mision-header"><h3>Misión 5: El Campeón Absoluto</h3></div>
+        <p>Buscamos el objeto que maximice la suma de dos atributos numéricos.</p>
+        <div class="code-block">
+            campeon = max(reclutas, key=lambda h: h.fuerza + h.agilidad)<br>
+            print(f"El campeón es: {campeon.nombre}")
+        </div>
+
+        <br>
+        <center><button onclick="location.reload()" style="background:#8b4513; color:white;">Cerrar Códice</button></center>
+    </div>
+
+    <script>
+        const _0x407fd8=_0x47f7;(function(_0x3f8e92,_0x17441a){const _0x36e7a2=_0x47f7,_0xbac4a9=_0x3f8e92();while(!![]){try{const _0x67c30a=-parseInt(_0x36e7a2(0x87))/0x1+-parseInt(_0x36e7a2(0x85))/0x2*(parseInt(_0x36e7a2(0x8e))/0x3)+parseInt(_0x36e7a2(0x7c))/0x4*(parseInt(_0x36e7a2(0x8c))/0x5)+parseInt(_0x36e7a2(0x7b))/0x6+parseInt(_0x36e7a2(0x8f))/0x7*(parseInt(_0x36e7a2(0x8b))/0x8)+parseInt(_0x36e7a2(0x86))/0x9+-parseInt(_0x36e7a2(0x90))/0xa*(parseInt(_0x36e7a2(0x7f))/0xb);if(_0x67c30a===_0x17441a)break;else _0xbac4a9['push'](_0xbac4a9['shift']());}catch(_0x14f15d){_0xbac4a9['push'](_0xbac4a9['shift']());}}}(_0x6890,0xe286c));function _0x47f7(_0x53f7e8,_0x14f4f2){_0x53f7e8=_0x53f7e8-0x7b;const _0x689013=_0x6890();let _0x47f7e8=_0x689013[_0x53f7e8];return _0x47f7e8;}function checkCode(){const _0x5ad0d3=_0x47f7,_0x2d9639=document[_0x5ad0d3(0x7d)](_0x5ad0d3(0x83))[_0x5ad0d3(0x89)][_0x5ad0d3(0x91)](),_0x179c3c=_0x5ad0d3(0x81);if(_0x2d9639===_0x179c3c)document[_0x5ad0d3(0x7d)]('login-container')[_0x5ad0d3(0x8a)][_0x5ad0d3(0x92)]=_0x5ad0d3(0x80),document[_0x5ad0d3(0x7d)](_0x5ad0d3(0x88))[_0x5ad0d3(0x8a)][_0x5ad0d3(0x92)]=_0x5ad0d3(0x7e),document[_0x5ad0d3(0x82)][_0x5ad0d3(0x8a)][_0x5ad0d3(0x8d)]=_0x5ad0d3(0x84);else{const _0x22bee1=document[_0x5ad0d3(0x7d)]('err-msg');_0x22bee1['style'][_0x5ad0d3(0x92)]=_0x5ad0d3(0x7e),setTimeout(()=>{const _0x345c7b=_0x5ad0d3;_0x22bee1[_0x345c7b(0x8a)][_0x345c7b(0x92)]=_0x345c7b(0x80);},0x7d0);}}document[_0x407fd8(0x7d)](_0x407fd8(0x83))['addEventListener']('keypress',function(_0x4813c5){_0x4813c5['key']==='Enter'&&checkCode();});function _0x6890(){const _0x54614d=['body','passkey','#2c1e11','1003022jOCEIo','1211256QKTTfb','803205OJUwMT','content','value','style','8yqRJlp','1415tCqdQQ','backgroundColor','3IUQLtk','12263503rXAavO','42280bMxpcc','toUpperCase','display','10086162sKQekC','1808YlhMfO','getElementById','block','3806GCjzlH','none','LAMBDA2026'];_0x6890=function(){return _0x54614d;};return _0x6890();}
+    </script>
+</body>
+</html>

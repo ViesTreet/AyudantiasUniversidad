@@ -63,12 +63,11 @@ a = False
 b = False
 c = False
 if(a):
-	#orden a ejecutar
+	print("primer if")
 elif(b):
-	#orden a ejecutar
+	print("segundo condicional")
 elif(c):
-	#orden a ejecutar
+	print("tercer condicional")
 else:
-	#orden a ejecutar
-	#esta se ejecutara 
+	print("ultimo condicional") 
 ```
