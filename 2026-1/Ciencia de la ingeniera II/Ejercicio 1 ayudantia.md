@@ -1,13 +1,12 @@
 <h1 style="text-align:center">Ejercicio 1 de ayudantia ciencia de  la ingenieria II</h1>
-# Gremio de Héroes: La Prueba de los Lambdas
-
+<h2> Gremio de Héroes: La Prueba de los Lambdas</h2>
 Contexto de la Aventura
 ¡Bienvenido al Gremio de Aventureros, Programador! El Maestro del Gremio necesita tu ayuda para organizar a los nuevos reclutas. Para probar tu valía, deberás usar tu magia más concisa: **Las funciones Lambda** aplicadas a **Objetos**.
 
-## El Códice Base
+### El Códice Base
 Primero, copia este código en tu pergamino (tu editor de Python). Define a nuestros reclutas:
 
-``` python
+```python 
 class Heroe:
     def __init__(self, nombre, clase, fuerza, agilidad):
         self.nombre = nombre
@@ -27,39 +26,39 @@ reclutas = [
     Heroe("Elora", "Mago", 25, 60)
 ]
 ```
-## Las 5 Pruebas del Maestro
+### Las 5 Pruebas del Maestro
 
 Resuelve cada uno de los siguientes desafíos en una sola línea de código utilizando funciones `lambda`.
 
-### Prueba 1: El Rango de Fuerza
+#### Prueba 1: El Rango de Fuerza
 
 El Rey ha pedido que los héroes formen una línea desde el más fuerte hasta el más débil para una inspección real.
 
 - [ ] **Misión:** Usa la función `sorted()` y una función `lambda` para ordenar la lista `reclutas` de mayor a menor según su atributo `fuerza`. Guarda el resultado en una variable llamada `formacion_fuerza` e imprímela.
     
 
-### Prueba 2: La Misión Sigilosa
+#### Prueba 2: La Misión Sigilosa
 
 Hay un dragón durmiendo en la cueva y necesitamos robar su tesoro sin despertarlo. Solo aquellos con una agilidad superior a 50 sobrevivirán.
 
 - [ ] **Misión:** Usa la función `filter()` junto con una función `lambda` para obtener solo los héroes con `agilidad > 50`. Guarda el resultado en una lista llamada `equipo_sigilo` e imprímela.
     
 
-### Prueba 3: El Oráculo de Nombres
+#### Prueba 3: El Oráculo de Nombres
 
 El Oráculo ciego del gremio no necesita saber las estadísticas, solo quiere una lista con los nombres de los héroes y su clase en formato texto para anotarlos en el registro mágico.
 
 - [ ] **Misión:** Usa la función `map()` y una `lambda` para transformar la lista de objetos `reclutas` en una simple lista de strings con el formato `"Nombre el Clase"` (ej. `"Arthur el Guerrero"`). Guárdalo en `registro_nombres` e imprímelo.
     
 
-### Prueba 4: El Torneo por Categorías
+#### Prueba 4: El Torneo por Categorías
 
 Se va a celebrar un torneo. El organizador necesita que la lista esté ordenada alfabéticamente por la `clase` del héroe (Guerrero, Mago, Orco, etc.). Pero, si hay dos héroes de la misma clase (como los Magos), el más ágil debe ir primero.
 
 - [ ] **Misión:** Usa `sorted()` con una función `lambda` que devuelva una tupla para ordenar primero por `clase` y luego por `agilidad` (de mayor a menor agilidad). Guarda el resultado en `orden_torneo`.
     
 
-### Prueba 5: La Elección del Campeón
+#### Prueba 5: La Elección del Campeón
 
 ¡Un demonio gigante ha atacado el pueblo! No hay tiempo para equipos, necesitamos enviar a nuestro campeón absoluto. El campeón es aquel que tenga la suma más alta de sus atributos (`fuerza` + `agilidad`).
 
