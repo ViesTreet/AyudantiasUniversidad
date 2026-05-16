@@ -71,3 +71,62 @@ elif(c):
 else:
 	print("ultimo condicional") 
 ```
+
+## Strings (Cadenas de caracteres)
+Los strings son secuencias de caracteres, lo que permite tratarlos como colecciones y realizar operaciones de selección.
+
+| Nombre | Definición | Ejemplo |
+| :--- | :--- | :--- |
+| Índice | Accede a un carácter específico según su posición (parte desde 0) | `"Hola"[1] = "o"` |
+| Slicing (Substring) | Extrae una porción del string usando un rango `[inicio:fin]` | `"Python"[0:2] = "Py"` |
+| Salto | Permite extraer caracteres saltándose posiciones `[inicio:fin:salto]` | `"Python"[::2] = "Pto"` |
+| Índice Negativo | Accede a los caracteres desde el final hacia adelante | `"Hola"[-1] = "a"` |
+
+### Métodos de Strings
+
+| Método   | Definición                                              | Ejemplo                   |
+| :------- | :------------------------------------------------------ | :------------------------ |
+| len()    | Devuelve el largo total del string                      | `len("Sol") = 3`          |
+| .upper() | Convierte todo el texto a mayúsculas                    | `"a".upper() = "A"`       |
+| .lower() | Convierte todo el texto a minúsculas                    | `"A".lower() = "a"`       |
+| .count() | Cuenta cuántas veces se repite un carácter o sub-cadena | `"banana".count("a") = 3` |
+
+---
+
+## Bucles (Iteraciones)
+Permiten repetir un bloque de código múltiples veces según una condición o una secuencia.
+
+### while
+Ejecuta el código **mientras** la condición sea verdadera. Se usa cuando no sabemos cuántas veces se debe repetir algo.
+```python
+i = 1
+while i <= 3:
+    print(i)
+    i += 1 # Importante para evitar bucles infinitos
+````
+
+### for
+
+Se utiliza para recorrer elementos en una secuencia (como un string) o un rango de números definido por `range()`.
+
+|**Función**|**Definición**|**Ejemplo**|
+|---|---|---|
+|range(fin)|Genera números desde 0 hasta fin - 1|`range(3)` -> 0, 1, 2|
+|range(ini, fin)|Genera números desde un inicio hasta fin - 1|`range(2, 5)` -> 2, 3, 4|
+
+
+```
+# Recorrer un string
+for letra in "Hola":
+    print(letra)
+
+# Recorrer un rango
+for x in range(1, 4):
+    print(f"Número: {x}")
+```
+
+### Sentencias de control
+
+- **break**: Rompe el bucle inmediatamente y sale de él.
+    
+- **continue**: Salta el resto del código en la iteración actual y pasa a la siguiente.

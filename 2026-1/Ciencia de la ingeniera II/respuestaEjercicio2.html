@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Códice de Herencia - Acceso Protegido</title>
+    <style>
+        body { background: #0f172a; color: #f1f5f9; font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .box { background: #1e293b; padding: 2rem; border-radius: 12px; border: 1px solid #334155; text-align: center; max-width: 800px; width: 90%; }
+        input { padding: 12px; border-radius: 6px; border: 1px solid #475569; background: #0f172a; color: white; width: 60%; font-size: 1rem; }
+        button { padding: 12px 24px; border-radius: 6px; border: none; background: #3b82f6; color: white; cursor: pointer; font-weight: bold; margin-left: 10px; }
+        #secret-content { display: none; text-align: left; margin-top: 20px; }
+        .code { background: #000; color: #adbac7; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; overflow-x: auto; font-size: 0.9rem; }
+        h2 { color: #60a5fa; border-bottom: 1px solid #334155; padding-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="box" id="login">
+    <h1>🏛️ Acceso al Templo del Linaje</h1>
+    <p>Solo los que entienden el origen pueden pasar. ¿Cuál es el secreto?</p>
+    <input type="password" id="pass" placeholder="Palabra mágica...">
+    <button onclick="unlock()">Entrar</button>
+</div>
+
+<div class="box" id="secret-content">
+    <h1>📜 Soluciones: El Linaje de los Guardianes</h1>
+    
+    <h2>Prueba 1 y 2: Definición con super()</h2>
+    <div class="code">
+class Guerrero(Guardian):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, nombre, nivel, fuerza):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super().__init__(nombre, nivel)  # Llama al padre<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.fuerza = fuerza<br><br>
+
+class Mago(Guardian):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, nombre, nivel, mana):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super().__init__(nombre, nivel)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.mana = mana
+    </div>
+
+    <h2>Prueba 3 y 4: Overriding (Sobrescritura)</h2>
+    <div class="code">
+# En Guerrero:<br>
+def accion_principal(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return "El guerrero ataca con su espada!"<br><br>
+
+# En Mago:<br>
+def presentarse(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return f"Soy {self.nombre}, un mago de nivel {self.nivel} con {self.mana} de mana."
+    </div>
+
+    <h2>Prueba 5: Polimorfismo en Acción</h2>
+    <div class="code">
+ejercito = [Guerrero("Ragnar", 10, 80), Mago("Gandalf", 20, 100)]<br><br>
+for unidad in ejercito:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(unidad.accion_principal()) <br>
+# Salida:<br>
+# "El guerrero ataca con su espada!"<br>
+# "El guardian se mantiene en guardia." (Si el mago no lo redefinió)
+    </div>
+    
+    <center><button onclick="location.reload()" style="margin-top:20px; background:#ef4444;">Cerrar Pergamino</button></center>
+</div>
+
+<script>
+    function unlock() {
+        const p = document.getElementById('pass').value;
+        if(p === "Herencia?") {
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('secret-content').style.display = 'block';
+            document.body.style.background = "#020617";
+        } else {
+            alert("Acceso denegado. El linaje se ha roto.");
+        }
+    }
+</script>
+
+</body>
+</html>
